@@ -5,11 +5,6 @@ var transition=document.getElementById('transion-area');
 transition.style.display='block'
 });
 
-
-
-
-
-
 var DepositBtn=document.getElementById('depositBtn');
 DepositBtn.addEventListener('click',function(){
     var ammountInput=document.getElementById('depositAmmount');
@@ -23,7 +18,10 @@ ammountInput.value='';
 var withdrawBtn=document.getElementById('withdrawbtn');
 withdrawBtn.addEventListener('click',function(){
   const widraw=getNumberInput('widrowAmmountInput')
-   console.log(widraw);
+  
+updateSpanTag('windrawCard',widraw);
+updateSpanTag('currentBalance',-1*widraw);
+document.getElementById('widrowAmmountInput').value='';
 })
 
 function getNumberInput(id){
@@ -31,8 +29,6 @@ function getNumberInput(id){
     var widraw=parseFloat(widrawAmmountInput);
     return widraw;
 }
-
-
 
 function updateSpanTag(id,depositNumber){
     const balanceCard=document.getElementById(id).innerText;
